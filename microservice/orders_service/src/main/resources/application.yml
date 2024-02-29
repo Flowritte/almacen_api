@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: msvc-inventory
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jbdc:mysql://localhost:3306/ordersbd
+    username: mysql
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+#config eureka
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+

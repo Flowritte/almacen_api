@@ -1,0 +1,26 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: msvc-inventory
+  datasource:
+    driver-class-name: org.postgresql.Drive
+    url: jbdc:postgresql://localhost:5432/productsbd
+    username: postgres
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgress
+    database-platform: org.hibernate.dialect.PostgresqlDialect
+
+#config eureka
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
