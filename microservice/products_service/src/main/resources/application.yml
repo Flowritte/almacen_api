@@ -1,19 +1,21 @@
 server:
-  port: 8090
+  port: 8070
 
 spring:
   application:
     name: msvc-inventory
+  #config:
+   # import: optional:configserver:http://localhost:8888
   datasource:
-    driver-class-name: org.postgresql.Drive
-    url: jbdc:postgresql://localhost:5432/productsbd
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/productsbd
     username: postgres
     password: 1234
   jpa:
     hibernate:
-      ddl-auto: update
-    database: postgress
-    database-platform: org.hibernate.dialect.PostgresqlDialect
+      ddl-auto: create
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 #config eureka
 eureka:
