@@ -1,0 +1,44 @@
+server:
+  port: 9010
+
+#eureka client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9057/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+spring:
+  application:
+    name: msvc-Gateway
+  cloud:
+    gateway: #routeo de los servicios
+      discovery:
+        locator:
+          enable: true
+      routes:
+        - id: msvc-inventory
+          uri: lb://msvc-inventory
+          predicates:
+            - Path=/api/v1/inventory/**
+        - id: msvc-orders
+          uri: lb://msvc-orders
+          predicates:
+            - Path=/api/v1/order/**
+        - id: msvc-products
+          uri: lb://msvc-products
+          predicates:
+            - Path=/api/v1/Product/** #el path la p es mayuscula
+
+#Log
+logging:
+  level:
+    root: info
+  org:
+    springframework:
+      cloud:
+        gateway: trace
+        route:
+          RouteDefinitionRouteLocator: info
+

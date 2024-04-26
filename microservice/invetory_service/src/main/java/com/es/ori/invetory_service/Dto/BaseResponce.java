@@ -1,4 +1,4 @@
-package com.es.ori.orders_service.Dto;
+package com.es.ori.invetory_service.Dto;
 
 public record BaseResponce(String[] errorMensaje) {
     public Boolean hasErrors(){

@@ -1,17 +1,16 @@
-package com.es.ori.orders_service.Dto;
+package com.es.ori.invetory_service.Dto;
 
 
 import lombok.*;
 
 @Data
-@Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderItemsRequest {
 
 
     private Long id;
-    private String SKU;
+    private String sku;
     private double price;
-    private Long Quantity;
+    private Long quantity;
 }
