@@ -1,44 +1,29 @@
+server:
+  port: 0
+
 spring:
   application:
     name: kafka_notificacion
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-service
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:9057/eureka
   instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.val ue}}
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
-
-
-#zookeeper:
-# Environmet:
-   #zookeeper_client_port: 2181 peurto de cliente de conecxion al servicio
-    #zookeeper_tick_time: 2000 define el tiempo base del funcionamiento com otiempo
-    #tiempo de espera para deeteccion defallos y sincronizaion de los datos y la propagacion dedatos
-
-#kafka:
-  #depens_on:
-   #-zookeeper
-    #port: 9092
-  #Environment:
-    #kafaka_broker_id: 1 identificacion unico cada bloker para evitar problems de comunicacion
-    #kafka_zookeeper_connect: zookeeper:2181 define el peuerto de conecxion a zookeeper
-    #kafka_zookeeper_sercurity_protocol_map:
-      #plainttext: plaintext
-      #plaintext:_host: plaintext define par amapear los procolos de securidad y se pueden configurar diferentes procoloos de seguridad
-    #kafka_advertised_listeners:
-      #plaintext: kafka:29092
-      #plaintext_host: localhost:9092
-       #estas dos define para especificar las direcciones para la comuniacaion de los brokers
-        #a kafka espefica la direccion de conexion
-    #kafka_offsets_topic_replication_factor: 1
-    # esto para especificar las replicas creadas
-    #kafka_transaction_state_log_min_irs:1 #el numero minimi de replicar sincronizadas
-    #esto garatiza la estabilidad incliso en fallo parciales solo al reguistro de fallos
-    #este numero minimo si kafka detecta que algunos broker estan fuera de servicio o inactivos
-    #y el numero de replicas cae por debajo de estenumero se considera que el registro de estado esta inaccesible
-    # no permitira transancciones hasta que se restablezca el numero dereplicas sincronizadas
-    #kafak_transacioton:state_log_replication_factor: 1
-    # se utiliza para establecer el factor ded replica dentro del estado de transacciones
-    #esto escritico para garantizar la integridad y la coherencia de las transacciones
-    # en cas ode fallo esto debe de ser mayor o igual al numero de brokers en el clouster de kafka
+#Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+    base_path:
+      -/actuator/notifications
