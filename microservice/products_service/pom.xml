@@ -8,8 +8,6 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-
-
 	<artifactId>products_service</artifactId>
 	<name>products_service</name>
 	<description>microservice products</description>

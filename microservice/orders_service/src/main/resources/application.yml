@@ -1,5 +1,5 @@
 server:
-  port: 0
+  port: 0 #se coloca en 0 para que el valor sea aleatorio
 
 spring: #config mysql
   application:
@@ -11,10 +11,18 @@ spring: #config mysql
     password: 1234
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
-
+  kafka:
+    bootstrap-servers: localhost:9092 #conexion de spring a kafka
+    producer:
+      retries: 1 #numero de intentos del productor demensajes si llegare a producir un error temporal
+      key-serializer: org.apache,kafka.common.serialization.StringSerializer
+      #direccion de tipo de serializador de cada mnsaje tambien sepuede personalizar el serializador
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      #espesificac omo se serializa la informacion y el valor en bytes antes de enviarlo alproductode falka
+      #
 
 #eureka client
 eureka:
@@ -23,3 +31,7 @@ eureka:
       defaultZone: http://localhost:9057/eureka/
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    #valores aleatorios para identifcar diferetnes iinstacias
+    # si se agregan nuievos servicios del mismo tipo
+
+

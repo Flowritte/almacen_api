@@ -23,4 +23,5 @@ public class OrderItems {
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Orders orders;
+    //relacion con la otra entidad
 }

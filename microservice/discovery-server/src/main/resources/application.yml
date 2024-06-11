@@ -11,7 +11,8 @@ eureka:
     prefer-ip-address: false
   client:
     register-with-eureka: false
-    fetch-registry: false
+    fetch-registry: false #para buscar infoprmacionde otro servidor tambiner se ddebe de
+                          #establecer la direccion A BUSCAR
     server-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 

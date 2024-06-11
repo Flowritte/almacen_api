@@ -19,15 +19,15 @@ spring:
           enable: true
       routes:
         - id: msvc-inventory
-          uri: lb://msvc-inventory
+          uri: http://msvc-inventory
           predicates:
             - Path=/api/v1/inventory/**
         - id: msvc-orders
-          uri: lb://msvc-orders
+          uri: http://msvc-orders
           predicates:
             - Path=/api/v1/order/**
         - id: msvc-products
-          uri: lb://msvc-products
+          uri: http://msvc-products
           predicates:
             - Path=/api/v1/Product/** #el path la p es mayuscula
 

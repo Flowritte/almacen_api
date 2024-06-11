@@ -8,7 +8,8 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderItemsRequest { //aqui es donde recibe los productos en lista
+public class OrderItemsRequest {
+    //aqui es donde recibe los productos en lista
 
 
     private Long id;

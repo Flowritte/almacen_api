@@ -24,6 +24,7 @@
 		<module>products_service</module>
 		<module>Api-Gateway</module>
 		<module>discovery-server</module>
+		<module>service_kafka</module>
 	</modules>
 
 	<properties>

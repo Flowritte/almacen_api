@@ -1,10 +1,10 @@
-package com.es.ori.products_service;
+package com.es.ori.service_kafka;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProductsTests {
+class KafkaNotificacionApplicationTests {
 
 	@Test
 	void contextLoads() {

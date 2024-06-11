@@ -10,7 +10,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class ProductRequest {
-    private Long id;
+    //metodo para insertar datos al repocitorio
+    //para poder crear el producto se necsita de esta clase
+    //para poder llamarlo y poder trabjar con el el otroas instancias
+    //donde se requiera
+    //llamado "producto requerido"
+    private String sku;
     private String name;
     private String descripcion;
     private Double price;
