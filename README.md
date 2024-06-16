@@ -1,6 +1,6 @@
 # almacen_microservice
-Ejercio de varios microservicios de 3 microservicio inter comunicados entre se de producto-inventrario-tiket 
-Usando buenas practicas,standares de pogramacion, y verbos http,DTO's,codigos de estado,patrones de diseño y patron de arquitectura de microservicios
+Proyecto de un sistema de inventario que esta orientado en la arquitectura de microservicios de los cuales 3 microservicio estan itercomunicados comunicados entre si de producto-inventrario-tiket 
+Usando buenas practicas,standares de pogramacion, y verbos http,DTO's,codigos de estado,patrones de diseño.ademas de usar docker para la contenerizacion de las configuraciones del servicio
 
 Ejercicio de micro servicios usando ApiRESTful la codificacion de los serviios se encuentran en la carpeta -->nombre del servicio-->src 
 
@@ -41,3 +41,6 @@ esta api usa 7 microservicios
     - descripcion
     - precio
     - status
+
+- un servicio de notificaciones usando kafka
+      -el servicio actua como productor y conteine las forma en que a dodne se envie la informacion
